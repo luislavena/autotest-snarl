@@ -28,7 +28,7 @@ class Autotest
             end
           end
         else
-          notify "#{@project}: Could not run tests.", '', 'error'
+          notify "#{@project}: Could not run tests.", '', 'error', true
         end
         false
       end
@@ -53,6 +53,7 @@ class Autotest
       @@snarl.add_class('autotest', 'passed')
       @@snarl.add_class('autotest', 'failed')
       @@snarl.add_class('autotest', 'pending')
+      @@snarl.add_class('autotest', 'error')
       @@snarl
     end
   end
