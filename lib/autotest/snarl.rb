@@ -36,11 +36,11 @@ class Autotest
       end
     end
 
-    def self.notify(title, message, klass, sticky = false)
+    def self.notify(title, text, klass, sticky = false)
       snarl.notify(
         :app => 'autotest',
         :title => title,
-        :message => message,
+        :text => text,
         :class => klass,
         :timeout => sticky ? 0 : 5,
         :icon => File.join(IMG_PATH, "#{klass}.png")
