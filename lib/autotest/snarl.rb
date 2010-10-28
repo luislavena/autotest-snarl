@@ -3,6 +3,8 @@ require 'autotest/results_parser'
 
 class Autotest
   module Snarl
+    IMG_PATH = File.expand_path(File.join(File.dirname(__FILE__), '..' , '..', 'img'))
+
     Autotest.add_hook :run_command do
       @project = File.basename(Dir.pwd)
     end
@@ -41,7 +43,7 @@ class Autotest
         :message => message,
         :class => klass,
         :timeout => sticky ? 0 : 5,
-        :icon => File.expand_path("~/.snarl/#{klass}.png")
+        :icon => File.join(IMG_PATH, "#{klass}.png")
       )
     end
 
