@@ -29,9 +29,10 @@ class Autotest
                       'passed'
             end
           when 'test-unit'
-            if results.has?('test-failed')
+            if results.has?('test-failed') || results.has?('test-error')
+              total = results['test-failed'].to_i + results['test-error'].to_i
               notify "#{@project}: some tests failed.",
-                      "#{results['test-failed']} of #{results.get('test')} failed",
+                      "#{total} of #{results.get('test')} failed",
                       'failed'
             elsif results.has?('test-skip')
               notify "#{@project}: some tests were skipped.",
