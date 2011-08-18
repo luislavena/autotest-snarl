@@ -4,7 +4,7 @@ require 'rubygems/package_task'
 spec = Gem::Specification.new do |s|
   s.name    = 'autotest-snarl'
   s.summary = 'Clean and stolen easy integration of Net::Snarl and autotest'
-  s.version = '0.0.3'
+  s.version = '0.0.4'
   s.author  = 'Luis Lavena'
   s.email   = 'luislavena@gmail.com'
   s.description = <<-EOT
