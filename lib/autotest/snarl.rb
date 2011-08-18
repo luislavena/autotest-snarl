@@ -28,6 +28,20 @@ class Autotest
                       "#{results.get('example')}",
                       'passed'
             end
+          when 'test-unit'
+            if results.has?('test-failed')
+              notify "#{@project}: some tests failed.",
+                      "#{results['test-failed']} of #{results.get('test')} failed",
+                      'failed'
+            elsif results.has?('test-skip')
+              notify "#{@project}: some tests were skipped.",
+                      "#{results['test-skip']} of #{results.get('test')} skipped",
+                      'pending'
+            else
+              notify "#{@project}: all tests passed.",
+                      "#{results.get('test')}",
+                      'passed'
+            end
           end
         else
           notify "#{@project}: Could not run tests.", '', 'error', true
